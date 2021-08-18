@@ -1,0 +1,233 @@
+.wrapper {
+  background-color: #131313;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: aliceblue;
+  text-align: center;
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100vh;
+  position: relative;
+}
+.background {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-image: url("../../static/kings-landing.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.logo {
+  background-image: url("../../static/game-of-thrones-logo-_1.png");
+  max-width: 600px;
+  width: 100%;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: 0 auto;
+  z-index: 2;
+}
+.backgorund p {
+  font-size: 12px;
+  color: black;
+  opacity: 0.5;
+}
+.divider {
+  margin-top: 40px;
+  display: inline-block;
+  width: 1px;
+  height: 180px;
+  padding-bottom: 40px;
+  margin-bottom: 10px;
+  background-color: white;
+  opacity: 0.3;
+}
+.quote {
+  font-size: 23px;
+  opacity: 0.3;
+  line-height: 1.5;
+  max-width: 400px;
+  padding-bottom: 20px;
+}
+.charac {
+  opacity: 0.3;
+  font-size: 13px;
+  padding-bottom: 50px;
+}
+
+.mainContainer {
+  width: 100%;
+  max-width: 1400px;
+}
+
+.bottomContent {
+  height: 250px;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(
+    to top,
+    rgba(19, 19, 19, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 ); /* IE6-9 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.bottomContent p {
+  opacity: 0.3;
+  font-size: 12px;
+}
+
+.bg {
+  position: relative;
+}
+.bg:after {
+  content: "";
+  background-color: rgba(19, 19, 19, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.overlay {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  z-index: 10;
+}
+.buttonholder {
+  width: 100%;
+}
+.buttonholder button {
+  height: 70px;
+  width: 200px;
+  background: transparent;
+  margin: 0 10px;
+  color: white;
+  font-family: "Game Of Thrones";
+  border: 3px solid white !important;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.desholder {
+  max-width: 60%;
+  line-height: 2.3;
+  padding: 90px 0;
+  opacity: 0.7;
+}
+.desholder h1 {
+  font-size: 35px;
+}
+.desholder p {
+  font-size: 15px;
+}
+
+.housesWrapper {
+  padding-top: 200px;
+  width: 100%;
+  position: relative;
+}
+.housesWrapper::after {
+  content: "";
+  background-color: rgba(19, 19, 19, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.housesHolder {
+  background-image: url("/iron-throne.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding-top: 90px;
+}
+.housesHolder h1 {
+  z-index: 20;
+  font-size: 60px;
+  padding-bottom: 100px;
+}
+.houseSymbol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 70%;
+  justify-content: space-between;
+  z-index: 20;
+}
+
+.sigil {
+  width: 33%;
+  padding-bottom: 60px;
+}
+.sigil img {
+  height: 100px;
+}
+
+.worldwrapper {
+  width: 100%;
+  display: flex;
+  position: relative;
+}
+.worldwrapper::after {
+  content: "";
+  background-color: rgba(19, 19, 19, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.worldhead {
+  width: 100%;
+  height: 100vh;
+  background-image: url("/map.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.worldcontent {
+  z-index: 30;
+  line-height: 1.8;
+  opacity: 0.7;
+}
+.worldcontent p {
+  font-size: 20px;
+}
+.worldcontent h1 {
+  font-size: 40px;
+}
+.worldcontent button {
+  height: 70px;
+  width: 220px;
+  background: transparent;
+  margin: 0 10px;
+  color: white;
+  font-family: "Game Of Thrones";
+  border: 3px solid white !important;
+  font-size: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+}

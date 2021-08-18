@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Game of Thrones";
+  src: url("../../static/fonts/GameofThrones.woff2") format("woff2"),
+    url("../../static//fonts//GameofThrones.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Game of Thrones";
+}
+.gatsby-image-wrapper {
+  max-height: 100%;
+}
