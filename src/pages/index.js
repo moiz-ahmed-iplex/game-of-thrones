@@ -1,7 +1,11 @@
 import React from "react"
 import * as style from "./index.module.css"
 import { Link, navigate } from "gatsby"
-export default function Home() {
+import { AnchorLink } from "gatsby-plugin-anchor-links"
+import { graphql } from "gatsby"
+
+export default function Home({ data }) {
+  console.log("DATA", data)
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
@@ -31,8 +35,10 @@ export default function Home() {
             <div className={style.overlay}>
               <div className={style.logo} />
               <div className={style.buttonholder}>
-                <button>Houses</button>
-                <button>Charaters</button>
+                <AnchorLink to="/#houses" title="Our team">
+                  <span>HOUSES</span>
+                </AnchorLink>{" "}
+                <Link to="/">Characters</Link>
               </div>
             </div>
           </div>
@@ -63,7 +69,7 @@ export default function Home() {
         <p className={style.charac}>Cersie Lannister</p>
       </section>
       <section className={style.housesWrapper}>
-        <div className={style.housesHolder}>
+        <div className={style.housesHolder} id="houses">
           <h1>houses</h1>
           <div className={style.houseSymbol}>
             <div className={style.sigil}>
@@ -114,13 +120,7 @@ export default function Home() {
           <div className={style.worldcontent}>
             <p>Explore {"  "} the</p>
             <h1>world</h1>
-            <button
-              onClick={() => {
-                navigate("/explore")
-              }}
-            >
-              begin exploring
-            </button>
+            <Link to="/explore">Begin Exploring</Link>
           </div>
         </div>
       </section>

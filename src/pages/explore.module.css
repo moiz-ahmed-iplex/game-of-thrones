@@ -4,6 +4,16 @@
   background-color: rgb(19, 19, 19);
   color: white;
   align-items: center;
+  position: relative;
+}
+.wrapper::after {
+  content: "";
+  background-color: rgba(19, 19, 19, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .locationholder {
   width: 100%;
@@ -13,17 +23,113 @@
 }
 .mapimg {
   width: 70%;
-  background-image: url("");
+  background-image: url("/Westeros.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-.desholder {
+.descholder {
   display: flex;
   flex-direction: column;
+  width: 30%;
 }
 .img2 {
   width: 100%;
+  background-image: url("/Map_of_Westeros.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
   height: 30%;
 }
 .textdiv {
+  z-index: 20;
   padding: 20px 20px;
   text-align: left;
+  line-height: 1.5;
+}
+
+.textdiv h1 {
+  opacity: 0.7;
+}
+.textdiv p {
+  font-size: 12px;
+  opacity: 0.5;
+}
+.locationholder:nth-child(2n + 2) {
+  flex-direction: row-reverse;
+}
+.locationholder:nth-child(2) .mapimg {
+  background-image: url(/The_North.png);
+}
+.locationholder:nth-child(2) .descholder .img2 {
+  background-image: url("/Winterfell.png");
+}
+.locationholder:nth-child(3) .mapimg {
+  background-image: url("/Vale_of_Arryn.png");
+}
+.locationholder:nth-child(3) .descholder .img2 {
+  background-image: url("/Vale_of_Arryn_2.jpg");
+  background-size: cover;
+}
+.locationholder:nth-child(4) .mapimg {
+  background-image: url("/The_Riverlands.png");
+}
+.locationholder:nth-child(4) .descholder .img2 {
+  background-image: url("/riverrun.jpg");
+  background-size: cover;
+}
+.locationholder:nth-child(5) .mapimg {
+  background-image: url("/The_Westerlands.png");
+}
+.locationholder:nth-child(5) .descholder .img2 {
+  background-image: url("/casterly-rock.png");
+  background-size: cover;
+}
+.locationholder:nth-child(6) .mapimg {
+  background-image: url("/Iron_Islands.png");
+}
+.locationholder:nth-child(6) .descholder .img2 {
+  background-image: url("/Pyke.jpg");
+  background-size: cover;
+}
+.locationholder:nth-child(7) .mapimg {
+  background-image: url("/The_Crownlands.png");
+}
+.locationholder:nth-child(7) .descholder .img2 {
+  background-image: url("/kings_landing.jpg");
+  background-size: cover;
+}
+.locationholder:nth-child(8) .mapimg {
+  background-image: url("/The_Stormlands.png");
+  background-size: 100% 100%;
+}
+.locationholder:nth-child(8) .descholder .img2 {
+  background-image: url("/stom_lands_2.png");
+  background-size: cover;
+}
+.locationholder:nth-child(9) .mapimg {
+  background-image: url("/The_Reach.png");
+  background-size: 100% 100%;
+}
+.locationholder:nth-child(9) .descholder .img2 {
+  background-image: url("/Highgarden.png");
+  background-size: cover;
+}
+.locationholder:nth-child(10) .mapimg {
+  background-image: url("/Dorne.png");
+  background-size: 100% 100%;
+}
+.locationholder:nth-child(10) .descholder .img2 {
+  background-image: url("/Sunspear.jpg");
+  background-size: cover;
+}
+.locationholder:nth-child(11) .mapimg {
+  background-image: url("/Beyond_the_Wall.png");
+  background-size: 100% 100%;
+}
+.locationholder:nth-child(11) .descholder .img2 {
+  background-image: url("/The_Wall.jpg");
+  background-size: cover;
+}
+
+video[cover] {
+  object-fit: cover;
 }
