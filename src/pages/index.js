@@ -1,11 +1,11 @@
 import React from "react"
 import * as style from "./index.module.css"
-import { Link, navigate } from "gatsby"
+import { Link } from "gatsby"
 import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { graphql } from "gatsby"
 
 export default function Home({ data }) {
-  console.log("DATA", data)
+  console.log("DATA", data.allHouses.edges)
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
@@ -72,45 +72,14 @@ export default function Home({ data }) {
         <div className={style.housesHolder} id="houses">
           <h1>houses</h1>
           <div className={style.houseSymbol}>
-            <div className={style.sigil}>
-              <img src="/house-arryn-got.svg" />
-              Arryn
-            </div>
-            <div className={style.sigil}>
-              <img src="/house-greyjoy-png.svg" />
-              GreyJoy
-            </div>{" "}
-            <div className={style.sigil}>
-              <img src="/house-lannister-got.svg" />
-              Lannister
-            </div>{" "}
-            <div className={style.sigil}>
-              <img src="/house-martell-got.svg" />
-              martell
-            </div>{" "}
-            <div className={style.sigil}>
-              <img src="/house-stark-got.svg" />
-              stark
-            </div>{" "}
-            <div className={style.sigil}>
-              <img src="/house-targerrian-got.svg" />
-              targerrian
-            </div>{" "}
-            <div className={style.sigil}>
-              {" "}
-              <img src="/house-tully-got.svg" />
-              tully
-            </div>{" "}
-            <div className={style.sigil}>
-              {" "}
-              <img src="/house-tyrell-got.svg" />
-              tyrell
-            </div>{" "}
-            <div className={style.sigil}>
-              {" "}
-              <img src="/house-baratheon-got.svg" />
-              baratheon
-            </div>
+            {data.allHouses.edges.slice(0, 6).map(house => (
+              <div className={style.sigil}>
+                <img src={`${house.node.name}.svg`} alt="" />
+                <Link to={"/houseDetails/" + house.node.name}>
+                  {house.node.name}
+                </Link>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -127,3 +96,15 @@ export default function Home({ data }) {
     </div>
   )
 }
+export const query = graphql`
+  {
+    allHouses {
+      edges {
+        node {
+          id
+          name
+        }
+      }
+    }
+  }
+`

@@ -182,9 +182,19 @@
 .sigil {
   width: 33%;
   padding-bottom: 60px;
+  display: flex;
+  flex-direction: column;
 }
 .sigil img {
   height: 100px;
+  padding-bottom: 20px;
+}
+.sigil a {
+  text-decoration: none;
+  color: white;
+}
+.sigil a:hover {
+  color: #f9d633;
 }
 
 .worldwrapper {
