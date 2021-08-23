@@ -13,6 +13,9 @@ exports.createPages = async ({ graphql, actions }) => {
             overlord
             currentLord
             heir
+            founder
+            cadetBranches
+            swornMembers
           }
         }
       }
@@ -32,6 +35,26 @@ exports.createPages = async ({ graphql, actions }) => {
       if (edge.node.heir.length !== 0) {
         const resHeir = await axios.get(edge.node.heir)
       }
+      let resFounder = ""
+      if (edge.node.founder.length !== 0) {
+        const resFounder = await axios.get(edge.node.founder)
+      }
+      let resCadetBranches = []
+      if (edge.node.cadetBranches.length !== 0) {
+        for (i = 0; i < edge.node.cadetBranches.length; i++) {
+          let url = await axios.get(edge.node.cadetBranches[i])
+          resCadetBranches.push(url.data.name)
+          console.log("Test Data", resCadetBranches)
+        }
+      }
+      let resSwornMembers = []
+      if (edge.node.swornMembers.length !== 0) {
+        for (i = 0; i < edge.node.swornMembers.length; i++) {
+          let url = await axios.get(edge.node.swornMembers[i])
+          resSwornMembers.push(url.data.name)
+          console.log("Sworn Members", resSwornMembers)
+        }
+      }
       await createPage({
         path: "/houseDetails/" + edge.node.name + "/",
         component: path.resolve("./src/pages/houseDetails.js"),
@@ -40,6 +63,9 @@ exports.createPages = async ({ graphql, actions }) => {
           overlord: resOverlord?.data?.name,
           currentLord: resCurrentLord?.data?.name,
           heir: resHeir?.data?.name,
+          founder: resFounder?.data?.name,
+          cadetBranches: resCadetBranches,
+          switch: resSwornMembers,
         },
       })
     })
