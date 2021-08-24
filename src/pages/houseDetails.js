@@ -6,11 +6,24 @@ export default function House(props) {
   console.log(`props`, props)
   const { data } = props
   console.log("data", data)
+  const tryRequire = path => {
+    try {
+      return require(`../../static/${path}.svg`)
+    } catch (err) {
+      return null
+    }
+  }
   return (
     <div className={style.container}>
       <h1 className={style.heading}>{data.allHouse.edges[0].node.name}</h1>
       <div className={style.wrapper}>
-        <div className={style.contentWrapper}>
+        <div
+          className={
+            tryRequire(data.allHouse.edges[0].node.name)
+              ? style.contentWrapper
+              : style.contentWrapperAll
+          }
+        >
           <div className={style.content}>
             <h1>Region:</h1>
             <p>{data.allHouse.edges[0].node.region}</p>
@@ -25,11 +38,15 @@ export default function House(props) {
           </div>
           <div className={style.content}>
             <h1>Titles held by the house:</h1>
-            <p>{data.allHouse.edges[0].node.titles}</p>
+            {data.allHouse?.edges[0].node.titles?.map(title => (
+              <p>{title}</p>
+            ))}
           </div>
           <div className={style.content}>
             <h1>Seats held by the House:</h1>
-            <p>{data.allHouse.edges[0].node.seats}</p>
+            {data.allHouse?.edges[0]?.node?.seats?.map(seat => (
+              <p>{seat}</p>
+            ))}
           </div>
           <div className={style.content}>
             <h1>Current Lord:</h1>
@@ -57,26 +74,32 @@ export default function House(props) {
           </div>
           <div className={style.content}>
             <h1>Ancestral weapons:</h1>
-            <p>{data.allHouse.edges[0].node.ancestralWeapons}</p>
+            {data.allHouse?.edges[0]?.node?.ancestralWeapons?.map(weapon => (
+              <p>{weapon}</p>
+            ))}
           </div>
           <div className={style.content}>
             <h1>Cadet Branches:</h1>
-            {props.pageContext.cadetBranches.map(branch => (
+            {props.pageContext?.cadetBranches?.map(branch => (
               <p>{branch}</p>
             ))}
           </div>
           <div className={style.content}>
             <h1>Sworn Members:</h1>
-            {props.pageContext.swornMembers.map(member => (
+            {props.pageContex?.swornMembers?.map(member => (
               <p>{member}</p>
             ))}
           </div>
         </div>
-        <img
-          src={`/${data.allHouse.edges[0].node.name}.svg`}
-          className={style.image}
-          alt=""
-        />
+        {tryRequire(data.allHouse.edges[0].node.name) ? (
+          <img
+            src={`/${data.allHouse.edges[0].node.name}.svg`}
+            className={style.image}
+            alt=""
+          />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   )

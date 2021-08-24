@@ -8,41 +8,31 @@ module.exports.sourceNodes = async ({
   createContentDigest,
 }) => {
   const { createNode } = actions
-  //get the action that will create a new node in our GraphQL API
   let i = 1
   let dataArr = []
   while (i <= 9) {
     const data = await fetch(
       `https://www.anapioficeandfire.com/api/houses?page=${i}&pageSize=50`
     )
-    //fetch our data
     const parsed = await data.json()
     dataArr = [...dataArr, ...parsed]
     i++
   }
-
-  //turn it from a string to JSON, in this case an Array
   dataArr.forEach((house, i) => {
-    //for each house and index
     const nodeContent = JSON.stringify(house)
-    //create a string of that data
     const nodeMeta = {
       id: createNodeId("house" + i),
-      //add geo to the index to create unique id
       parent: null,
       children: [],
       internal: {
         type: `house`,
-        //gives internal typing for GraphQL
         mediaType: `text/html`,
         content: nodeContent,
         contentDigest: createContentDigest(house),
       },
     }
     const node = Object.assign({}, house, nodeMeta)
-    //combining everything
     createNode(node)
-    //putting it in the GQL!
   })
 }
 

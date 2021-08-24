@@ -69,9 +69,9 @@ export default function Home({ data }) {
       </section>
       <section className={style.housesWrapper}>
         <div className={style.housesHolder} id="houses">
-          <h1>houses</h1>
+          <h1>the Great Houses of Westeros</h1>
           <div className={style.houseSymbol}>
-            {data.allHouse.edges.slice(0, 6).map(house => (
+            {data.allHouse.edges.map(house => (
               <div className={style.sigil}>
                 <img src={`${house.node.name}.svg`} alt="" />
                 <Link to={"/houseDetails/" + house.node.name}>
@@ -80,6 +80,10 @@ export default function Home({ data }) {
               </div>
             ))}
           </div>
+          <Link to="/" className={style.allHouses}>
+            {" "}
+            All houses
+          </Link>
         </div>
       </section>
       <section className={style.worldwrapper}>
@@ -97,10 +101,25 @@ export default function Home({ data }) {
 }
 export const query = graphql`
   {
-    allHouse {
+    allHouse(
+      filter: {
+        name: {
+          in: [
+            "House Targaryen of King's Landing"
+            "House Stark of Winterfell"
+            "House Baratheon of Storm's End"
+            "House Greyjoy of Pyke"
+            "House Lannister of Casterly Rock"
+            "House Tyrell of Highgarden"
+            "House Arryn of the Eyrie"
+            "House Tully of Riverrun"
+            "House Nymeros Martell of Sunspear"
+          ]
+        }
+      }
+    ) {
       edges {
         node {
-          id
           name
         }
       }

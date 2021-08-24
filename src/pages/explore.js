@@ -4,8 +4,9 @@ import AOS from "aos"
 import "aos/dist/aos.css"
 
 export default function Explore() {
-  AOS.init()
-
+  if (typeof window !== "undefined") {
+    AOS.init()
+  }
   return (
     <div>
       <div className={style.wrapper}>
