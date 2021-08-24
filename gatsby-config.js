@@ -5,7 +5,6 @@
  */
 
 module.exports = {
-  /* Your site config here */
   plugins: [
     {
       resolve: "gatsby-source-custom-api",
@@ -29,33 +28,7 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: "gatsby-source-custom-api",
-      options: {
-        url: "https://www.anapioficeandfire.com/api/houses",
-        rootKey: "houses",
-        schemas: {
-          houses: `
-              url:String
-              name:String
-              region:String
-              coatOfArms:String
-              words:String
-              titles:[String]
-              seats:[String]
-              currentLord:String
-              heir:String
-              overlord:String
-              founded:String
-              founder:String
-              diedOut:String
-              ancestralWeapons:[String]
-              cadetBranches:[String]
-              swornMembers:[String]
-           `,
-        },
-      },
-    },
+
     {
       resolve: "gatsby-source-custom-api",
       options: {

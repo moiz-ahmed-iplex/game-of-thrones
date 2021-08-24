@@ -1,11 +1,56 @@
 const path = require("path")
 const axios = require("axios")
+const fetch = require("isomorphic-fetch")
+
+module.exports.sourceNodes = async ({
+  actions,
+  createNodeId,
+  createContentDigest,
+}) => {
+  const { createNode } = actions
+  //get the action that will create a new node in our GraphQL API
+  let i = 1
+  let dataArr = []
+  while (i <= 9) {
+    const data = await fetch(
+      `https://www.anapioficeandfire.com/api/houses?page=${i}&pageSize=50`
+    )
+    //fetch our data
+    const parsed = await data.json()
+    dataArr = [...dataArr, ...parsed]
+    i++
+  }
+
+  //turn it from a string to JSON, in this case an Array
+  dataArr.forEach((house, i) => {
+    //for each house and index
+    const nodeContent = JSON.stringify(house)
+    //create a string of that data
+    const nodeMeta = {
+      id: createNodeId("house" + i),
+      //add geo to the index to create unique id
+      parent: null,
+      children: [],
+      internal: {
+        type: `house`,
+        //gives internal typing for GraphQL
+        mediaType: `text/html`,
+        content: nodeContent,
+        contentDigest: createContentDigest(house),
+      },
+    }
+    const node = Object.assign({}, house, nodeMeta)
+    //combining everything
+    createNode(node)
+    //putting it in the GQL!
+  })
+}
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const result = await graphql(`
     {
-      allHouses {
+      allHouse {
         edges {
           node {
             id
@@ -21,8 +66,9 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
   return Promise.all(
-    result.data.allHouses.edges.map(async edge => {
+    result.data.allHouse.edges.map(async edge => {
       let resOverlord = ""
       if (edge.node.overlord.length !== 0) {
         resOverlord = await axios.get(edge.node.overlord)
@@ -44,7 +90,6 @@ exports.createPages = async ({ graphql, actions }) => {
         for (i = 0; i < edge.node.cadetBranches.length; i++) {
           let url = await axios.get(edge.node.cadetBranches[i])
           resCadetBranches.push(url.data.name)
-          console.log("Test Data", resCadetBranches)
         }
       }
       let resSwornMembers = []
@@ -52,7 +97,6 @@ exports.createPages = async ({ graphql, actions }) => {
         for (i = 0; i < edge.node.swornMembers.length; i++) {
           let url = await axios.get(edge.node.swornMembers[i])
           resSwornMembers.push(url.data.name)
-          console.log("Sworn Members", resSwornMembers)
         }
       }
       await createPage({
@@ -65,7 +109,7 @@ exports.createPages = async ({ graphql, actions }) => {
           heir: resHeir?.data?.name,
           founder: resFounder?.data?.name,
           cadetBranches: resCadetBranches,
-          switch: resSwornMembers,
+          swornMembers: resSwornMembers,
         },
       })
     })

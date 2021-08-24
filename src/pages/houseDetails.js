@@ -8,36 +8,36 @@ export default function House(props) {
   console.log("data", data)
   return (
     <div className={style.container}>
-      <h1 className={style.heading}>{data.allHouses.edges[0].node.name}</h1>
+      <h1 className={style.heading}>{data.allHouse.edges[0].node.name}</h1>
       <div className={style.wrapper}>
         <div className={style.contentWrapper}>
           <div className={style.content}>
             <h1>Region:</h1>
-            <p>{data.allHouses.edges[0].node.region}</p>
+            <p>{data.allHouse.edges[0].node.region}</p>
           </div>
           <div className={style.content}>
             <h1>Coat of arms:</h1>
-            <p>{data.allHouses.edges[0].node.coatOfArms}</p>
+            <p>{data.allHouse.edges[0].node.coatOfArms}</p>
           </div>
           <div className={style.content}>
             <h1>Words Of The House:</h1>
-            <p>{data.allHouses.edges[0].node.words}</p>
+            <p>{data.allHouse.edges[0].node.words}</p>
           </div>
           <div className={style.content}>
             <h1>Titles held by the house:</h1>
-            <p>{data.allHouses.edges[0].node.titles}</p>
+            <p>{data.allHouse.edges[0].node.titles}</p>
           </div>
           <div className={style.content}>
             <h1>Seats held by the House:</h1>
-            <p>{data.allHouses.edges[0].node.seats}</p>
+            <p>{data.allHouse.edges[0].node.seats}</p>
           </div>
           <div className={style.content}>
             <h1>Current Lord:</h1>
-            <p>{data.allHouses.edges[0].node.currentLord}</p>
+            <p>{props.pageContext.currentLord}</p>
           </div>
           <div className={style.content}>
             <h1>Heir:</h1>
-            <p>{data.allHouses.edges[0].node.heir}</p>
+            <p>{props.pageContext.heir}</p>
           </div>
           <div className={style.content}>
             <h1>OverLord:</h1>
@@ -45,32 +45,37 @@ export default function House(props) {
           </div>
           <div className={style.content}>
             <h1>Founded:</h1>
-            <p>{data.allHouses.edges[0].node.founded}</p>
+            <p>{data.allHouse.edges[0].node.founded}</p>
           </div>
           <div className={style.content}>
             <h1>founder:</h1>
-            <p>{data.allHouses.edges[0].node.founder}</p>
+            <p>{props.pageContext.founder}</p>
           </div>
           <div className={style.content}>
             <h1>Died Out In:</h1>
-            <p>{data.allHouses.edges[0].node.diedOut}</p>
+            <p>{data.allHouse.edges[0].node.diedOut}</p>
           </div>
           <div className={style.content}>
             <h1>Ancestral weapons:</h1>
-            <p>{data.allHouses.edges[0].node.ancestralWeapons}</p>
+            <p>{data.allHouse.edges[0].node.ancestralWeapons}</p>
           </div>
           <div className={style.content}>
             <h1>Cadet Branches:</h1>
-            <p>{data.allHouses.edges[0].node.cadetBranches}</p>
+            {props.pageContext.cadetBranches.map(branch => (
+              <p>{branch}</p>
+            ))}
           </div>
           <div className={style.content}>
             <h1>Sworn Members:</h1>
-            <p>{data.allHouses.edges[0].node.swornMembers}</p>
+            {props.pageContext.swornMembers.map(member => (
+              <p>{member}</p>
+            ))}
           </div>
         </div>
         <img
-          src={`/${data.allHouses.edges[0].node.name}.svg`}
+          src={`/${data.allHouse.edges[0].node.name}.svg`}
           className={style.image}
+          alt=""
         />
       </div>
     </div>
@@ -79,7 +84,7 @@ export default function House(props) {
 
 export const query = graphql`
   query ($id: String) {
-    allHouses(filter: { id: { eq: $id } }) {
+    allHouse(filter: { id: { eq: $id } }) {
       edges {
         node {
           id

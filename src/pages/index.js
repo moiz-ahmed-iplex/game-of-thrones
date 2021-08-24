@@ -5,7 +5,6 @@ import { AnchorLink } from "gatsby-plugin-anchor-links"
 import { graphql } from "gatsby"
 
 export default function Home({ data }) {
-  console.log("DATA", data.allHouses.edges)
   return (
     <div className={style.wrapper}>
       <div className={style.container}>
@@ -72,7 +71,7 @@ export default function Home({ data }) {
         <div className={style.housesHolder} id="houses">
           <h1>houses</h1>
           <div className={style.houseSymbol}>
-            {data.allHouses.edges.slice(0, 6).map(house => (
+            {data.allHouse.edges.slice(0, 6).map(house => (
               <div className={style.sigil}>
                 <img src={`${house.node.name}.svg`} alt="" />
                 <Link to={"/houseDetails/" + house.node.name}>
@@ -98,7 +97,7 @@ export default function Home({ data }) {
 }
 export const query = graphql`
   {
-    allHouses {
+    allHouse {
       edges {
         node {
           id
