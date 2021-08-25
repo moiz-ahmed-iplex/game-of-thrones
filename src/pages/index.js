@@ -73,14 +73,21 @@ export default function Home({ data }) {
           <div className={style.houseSymbol}>
             {data.allHouse.edges.map(house => (
               <div className={style.sigil}>
-                <img src={`${house.node.name}.svg`} alt="" />
-                <Link to={"/houseDetails/" + house.node.name}>
+                <Link
+                  to={"/houseDetails/" + house.node.name}
+                  className={style.link}
+                >
+                  <img
+                    src={`${house.node.name}.svg`}
+                    alt=""
+                    className={style.sigilimg}
+                  />
                   {house.node.name}
                 </Link>
               </div>
             ))}
           </div>
-          <Link to="/" className={style.allHouses}>
+          <Link to="/allhouses" className={style.allHouses}>
             {" "}
             All houses
           </Link>
