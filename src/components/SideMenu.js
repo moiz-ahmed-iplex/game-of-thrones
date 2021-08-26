@@ -1,12 +1,22 @@
 import React from "react"
 import * as style from "./SideMenu.module.css"
 import { Link } from "gatsby"
+import AOS from "aos"
+import "aos/dist/aos.css"
 
 export default function SideMenu() {
+  if (typeof window !== "undefined") {
+    AOS.init()
+  }
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+      data-aos="fade-right"
+      data-aos-offset="500"
+      data-aos-duration="500"
+    >
       <div className={style.wrapper}>
-        <Link to="/" className={style.navLink}>
+        <Link to="/allBooks" className={style.navLink}>
           <div className={style.content}>
             <h1>Books</h1>
           </div>

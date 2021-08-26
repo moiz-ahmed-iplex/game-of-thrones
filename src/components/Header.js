@@ -42,16 +42,16 @@ const MenuIcon = styled.button`
 
 export default function Headers() {
   const [nav, setNav] = useState(false)
-  const [isHeader, setIsHeader] = useState()
-  const [disableScroll, setDisableScroll] = useState(false)
+  const [isHeader, setIsHeader] = useState(true)
 
   useEffect(() => {
-    if (disableScroll === true) {
+    setIsHeader(!isHeader)
+    if (nav) {
       document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = "unset"
     }
-  }, [disableScroll])
+  }, [nav])
 
   const changeBackground = () => {
     if (window.scrollY >= 90) {
@@ -65,6 +65,10 @@ export default function Headers() {
     window.addEventListener("scroll", changeBackground)
   }
 
+  const handleClick = () => {
+    setNav(!nav)
+  }
+
   return (
     <div>
       <header className={isHeader ? headerStyle.headactive : headerStyle.head}>
@@ -72,13 +76,7 @@ export default function Headers() {
           <Link to="/">
             <div className={headerStyle.logo} />
           </Link>
-          <MenuIcon
-            onClick={() => {
-              setNav(!nav)
-              setIsHeader(true)
-              setDisableScroll(!disableScroll)
-            }}
-          >
+          <MenuIcon onClick={handleClick}>
             <IconBar nav={nav} />
             <IconBar nav={nav} />
             <IconBar nav={nav} />
