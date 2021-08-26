@@ -47,7 +47,7 @@ export default function Allhouses({ data }) {
           type="text"
           placeholder="Search...."
           className={style.search}
-          onChange={debouncedChangeHandler}
+          onChange={handlechange}
         />
       </div>
       <div

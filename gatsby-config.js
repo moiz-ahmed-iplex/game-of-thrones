@@ -9,7 +9,7 @@ module.exports = {
     {
       resolve: "gatsby-source-custom-api",
       options: {
-        url: "https://www.anapioficeandfire.com/api/books",
+        url: "https://www.anapioficeandfire.com/api/books?page=1&pageSize=50",
         rootKey: "books",
         schemas: {
           books: `
