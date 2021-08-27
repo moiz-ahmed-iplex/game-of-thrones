@@ -1,0 +1,93 @@
+.container {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #131313;
+  align-items: center;
+  padding: 90px 80px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.wrapper h1 {
+  padding-bottom: 30px;
+}
+.card {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.8;
+  flex-wrap: wrap;
+  position: relative;
+  padding-bottom: 20px;
+}
+.card:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  background-image: url("/House Stark of Winterfell.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.card a {
+  z-index: 10;
+  width: 20%;
+  color: white;
+  padding-bottom: 5px;
+  text-decoration: none;
+}
+.card a:hover {
+  color: #f9d633;
+}
+
+.wrapper:nth-child(4) .card:before {
+  background-image: url("/House Lannister of Casterly Rock.svg");
+}
+.wrapper:nth-child(5) .card:before {
+  background-image: url("/House Targaryen of King's Landing.svg");
+}
+.wrapper:nth-child(6) .card:before {
+  background-image: url("/House Greyjoy of Pyke.svg");
+}
+.wrapper:nth-child(7) .card:before {
+  background-image: url("/House Tyrell of Highgarden.svg");
+}
+.wrapper:nth-child(8) .card:before {
+  background-image: url("/House Baratheon of Storm's End.svg");
+}
+
+.wrapper:nth-child(9) .card:before {
+  background-image: url("/House Nymeros Martell of Sunspear.svg");
+}
+.wrapper:nth-child(10) .card:before {
+  background-image: url("/House Tully of Riverrun.svg");
+}
+.wrapper:nth-child(11) .card:before {
+  background-image: url("/House Arryn of the Eyrie.svg");
+}
+.container h1 {
+  padding: 20px;
+}
+.allCharacters {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  border: 2px solid white;
+  padding: 10px 10px;
+  border-radius: 50px;
+}
+.allCharacters:hover {
+  color: #f9d633;
+  border-color: #f9d633;
+}
