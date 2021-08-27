@@ -38,7 +38,7 @@ export default function Home({ data }) {
                   <AnchorLink to="/#houses" title="Our team">
                     <span>HOUSES</span>
                   </AnchorLink>{" "}
-                  <Link to="/">Characters</Link>
+                  <Link to="/charactersMajor">Characters</Link>
                 </div>
               </div>
             </div>

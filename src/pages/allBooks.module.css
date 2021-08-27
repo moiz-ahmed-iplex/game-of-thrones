@@ -1,6 +1,7 @@
 .container {
   min-height: 100vh;
   background-color: #131313;
+  padding-top: 120px;
 }
 .wrapper {
   padding: 50px 40px;

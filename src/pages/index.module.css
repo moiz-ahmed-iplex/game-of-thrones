@@ -162,8 +162,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-  padding-top: 90px;
+  padding: 90px 0px;
 }
 .housesHolder h1 {
   z-index: 20;
@@ -255,7 +254,6 @@
   text-decoration: none;
   padding: 22px 53px;
   max-height: 70px;
-  max-width: 200px;
   background: transparent;
   margin: 0 10px;
   color: white;
