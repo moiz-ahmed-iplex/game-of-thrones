@@ -9,7 +9,7 @@ const CharacterMajor = ({ data }) => {
     <Layout>
       <div className={style.container}>
         <h1>Characters Of the Great Houses</h1>
-        <Link to="/" className={style.allCharacters}>
+        <Link to="/allCharcters" className={style.allCharacters}>
           {" "}
           Click here to view all the Characters of the series
         </Link>
