@@ -8,32 +8,64 @@ module.exports.sourceNodes = async ({
   createContentDigest,
 }) => {
   const { createNode } = actions
-  let i = 1
-  let dataArr = []
-  while (i <= 9) {
-    const data = await fetch(
-      `https://www.anapioficeandfire.com/api/houses?page=${i}&pageSize=50`
-    )
-    const parsed = await data.json()
-    dataArr = [...dataArr, ...parsed]
-    i++
-  }
-  dataArr.forEach((house, i) => {
-    const nodeContent = JSON.stringify(house)
-    const nodeMeta = {
-      id: createNodeId("house" + i),
-      parent: null,
-      children: [],
-      internal: {
-        type: `house`,
-        mediaType: `text/html`,
-        content: nodeContent,
-        contentDigest: createContentDigest(house),
-      },
+  const fetchHouses = async () => {
+    let i = 1
+    let dataArr = []
+    while (i <= 9) {
+      const data = await fetch(
+        `https://www.anapioficeandfire.com/api/houses?page=${i}&pageSize=50`
+      )
+      const parsed = await data.json()
+      dataArr = [...dataArr, ...parsed]
+      i++
     }
-    const node = Object.assign({}, house, nodeMeta)
-    createNode(node)
-  })
+    dataArr.forEach((house, i) => {
+      const nodeContent = JSON.stringify(house)
+      const nodeMeta = {
+        id: createNodeId("house" + i),
+        parent: null,
+        children: [],
+        internal: {
+          type: `house`,
+          mediaType: `text/html`,
+          content: nodeContent,
+          contentDigest: createContentDigest(house),
+        },
+      }
+      const node = Object.assign({}, house, nodeMeta)
+      createNode(node)
+    })
+  }
+  const fetchCharacters = async () => {
+    let i = 1
+    let dataArr = []
+    while (i <= 43) {
+      const data = await fetch(
+        `https://www.anapioficeandfire.com/api/characters?page=${i}&pageSize=50`
+      )
+      const parsed = await data.json()
+      dataArr = [...dataArr, ...parsed]
+      i++
+    }
+    dataArr.forEach((character, i) => {
+      const nodeContent = JSON.stringify(character)
+      const nodeMeta = {
+        id: createNodeId("character" + i),
+        parent: null,
+        children: [],
+        internal: {
+          type: `character`,
+          mediaType: `text/html`,
+          content: nodeContent,
+          contentDigest: createContentDigest(character),
+        },
+      }
+      const node = Object.assign({}, character, nodeMeta)
+      createNode(node)
+    })
+  }
+  await fetchHouses()
+  await fetchCharacters()
 }
 
 exports.createPages = async ({ graphql, actions }) => {

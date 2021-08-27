@@ -21,7 +21,7 @@ export default function SideMenu() {
             <h1>Books</h1>
           </div>
         </Link>
-        <Link to="/" className={style.navLink}>
+        <Link to="/charactersMajor" className={style.navLink}>
           <div className={style.content}>
             <h1>Characters</h1>
           </div>
