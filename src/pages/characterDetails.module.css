@@ -55,3 +55,30 @@
   justify-content: right;
   align-items: flex-start;
 }
+
+@media only screen and (max-width: 1500px) {
+  .content h1 {
+    font-size: 25px;
+  }
+  .content p {
+    font-size: 15px;
+  }
+  .content {
+    padding-bottom: 30px;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .contentWrapperAll {
+    padding: 0 20px;
+  }
+  .heading {
+    font-size: 30px;
+  }
+  .content h1 {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+  .content p {
+    font-size: 15px;
+  }
+}

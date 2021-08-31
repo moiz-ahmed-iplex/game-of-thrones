@@ -14,11 +14,11 @@ export default function Explore() {
           <section className={style.locationholder}>
             <div className={style.mapimg}></div>
             <div className={style.descholder}>
-              <div className={style.img2}></div>
+              <div className={style.img2} />
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="100"
                 data-aos-duration="1500"
               >
                 <h1>Westeros</h1>
@@ -58,7 +58,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>the north</h1>
@@ -94,7 +94,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Vale of Arryn</h1>
@@ -130,7 +130,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Riverlands</h1>
@@ -165,7 +165,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Westerlands</h1>
@@ -200,7 +200,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Iron Islands</h1>
@@ -235,7 +235,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Crownlands</h1>
@@ -270,7 +270,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Stormlands</h1>
@@ -311,7 +311,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>The Reach</h1>
@@ -354,7 +354,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>Principality of Dorne</h1>
@@ -394,7 +394,7 @@ export default function Explore() {
               <div
                 className={style.textdiv}
                 data-aos="fade-up"
-                data-aos-offset="500"
+                data-aos-offset="200"
                 data-aos-duration="1500"
               >
                 <h1>Beyond the Wall</h1>

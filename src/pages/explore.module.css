@@ -22,7 +22,7 @@
   flex-direction: row;
 }
 .mapimg {
-  width: 70%;
+  width: 60%;
   background-image: url("/Westeros.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -30,7 +30,7 @@
 .descholder {
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 40%;
 }
 .img2 {
   width: 100%;
@@ -50,7 +50,7 @@
   opacity: 0.7;
 }
 .textdiv p {
-  font-size: 12px;
+  font-size: 15px;
   opacity: 0.5;
 }
 .locationholder:nth-child(2n + 2) {
@@ -129,7 +129,80 @@
   background-image: url("/The_Wall.jpg");
   background-size: cover;
 }
-
-video[cover] {
-  object-fit: cover;
+@media only screen and (max-width: 1920px) {
+  .textdiv p {
+    font-size: 20px;
+  }
+  .textdiv h1 {
+    font-size: 25px;
+  }
+  .img2 {
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 1500px) {
+  .textdiv p {
+    font-size: 15px;
+  }
+  .mapimg {
+    width: 50%;
+  }
+  .descholder {
+    width: 50%;
+  }
+  .img2 {
+    background-size: cover;
+  }
+}
+@media only screen and (max-width: 990px) {
+  .locationholder {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .locationholder:nth-child(2n + 2) {
+    flex-direction: column;
+  }
+  .textdiv p {
+    font-size: 18px;
+  }
+  .mapimg {
+    width: 50%;
+  }
+  .descholder {
+    width: 100%;
+  }
+  .img2 {
+    display: none;
+  }
+  .mapimg {
+    height: 100%;
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .locationholder {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .locationholder:nth-child(2n + 2) {
+    flex-direction: column;
+  }
+  .textdiv p {
+    font-size: 15px;
+  }
+  .mapimg {
+    width: 50%;
+  }
+  .descholder {
+    width: 100%;
+  }
+  .img2 {
+    display: none;
+  }
+  .mapimg {
+    height: 100%;
+    width: 100%;
+  }
 }

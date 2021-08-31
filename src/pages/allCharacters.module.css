@@ -14,7 +14,6 @@
 .route {
   flex: 0 0 20%;
   width: 20%;
-  max-width: 20%;
   margin: 10px 0;
   text-decoration: none;
   color: white;
@@ -68,4 +67,25 @@
 }
 .search:focus {
   outline: transparent;
+}
+@media only screen and (max-width: 660px) {
+  .search {
+    width: 100%;
+  }
+  .container {
+    padding: 90px 10px;
+  }
+  .heading h1 {
+    font-size: 30px;
+  }
+  .route {
+    flex: 0 0 50%;
+    width: 50%;
+  }
+  .wrapper {
+    padding: 0 20px;
+  }
+  .wrapper a {
+    font-size: 17px;
+  }
 }

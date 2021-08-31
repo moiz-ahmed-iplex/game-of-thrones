@@ -18,7 +18,6 @@
 .contentWrapper {
   display: flex;
   flex-direction: column;
-  min-width: 50%;
   max-width: 100%;
 }
 .contentWrapperAll {
@@ -54,4 +53,27 @@
 .content:nth-child(2n + 2) {
   justify-content: right;
   align-items: flex-start;
+}
+@media only screen and (max-width: 1500px) {
+  .content h1 {
+    font-size: 25px;
+  }
+  .content p {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .heading {
+    text-align: center;
+    font-size: 25px;
+  }
+  .wrapper {
+    padding: 0 20px;
+  }
+  .contentWrapper {
+    width: 100%;
+  }
+  .image {
+    display: none;
+  }
 }

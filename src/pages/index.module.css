@@ -269,3 +269,40 @@
   color: #f9d633;
   border: 3px solid #f9d633 !important;
 }
+
+@media only screen and (max-width: 1500px) {
+  .mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .bg {
+    width: 80%;
+  }
+  .housesHolder h1 {
+    font-size: 30px;
+  }
+  .sigil {
+    width: 30%;
+    padding-bottom: 30px;
+  }
+  .sigil a {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 660px) {
+  .bg {
+    display: none;
+  }
+  .desholder {
+    width: 100%;
+  }
+  .desholder p {
+    font-size: 12px;
+    text-align: left;
+  }
+  .sigil {
+    width: 49%;
+  }
+}
