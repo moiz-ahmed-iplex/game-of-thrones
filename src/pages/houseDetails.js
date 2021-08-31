@@ -123,7 +123,7 @@ export default function House(props) {
             </div>
             <div className={style.content}>
               <h1>Cadet Branches:</h1>
-              {props.pageContext.cadetBranches.length > 0
+              {props.pageContext.cadetBranches?.length > 0
                 ? props.pageContext.cadetBranches.map(branch => <p>{branch}</p>)
                 : "This house has no cadet branches"}
             </div>

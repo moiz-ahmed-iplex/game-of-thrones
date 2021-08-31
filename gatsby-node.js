@@ -70,7 +70,40 @@ module.exports.sourceNodes = async ({
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
   const result = await graphql(`
+    {
+      allCharacter(filter: { name: { ne: "" } }) {
+        edges {
+          node {
+            name
+            id
+            father
+            mother
+            allegiances
+            spouse
+            books
+          }
+        }
+      }
+    }
+  `)
+  result.data.allCharacter.edges.forEach(({ node }) => {
+    createPage({
+      path: "/characterDetails/" + node.name + "/",
+      component: path.resolve("./src/pages/characterDetails.js"),
+      context: {
+        id: node.id,
+        father: node.father,
+        mother: node.mother,
+        spouse: node.spouse,
+        books: node.books,
+        allegiances: node.allegiances,
+      },
+    })
+  })
+
+  const houses = await graphql(`
     {
       allHouse {
         edges {
@@ -88,52 +121,23 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
-
-  return Promise.all(
-    result.data.allHouse.edges.map(async edge => {
-      let resOverlord = ""
-      if (edge.node.overlord.length !== 0) {
-        resOverlord = await axios.get(edge.node.overlord)
-      }
-      let resCurrentLord = ""
-      if (edge.node.currentLord.length !== 0) {
-        resCurrentLord = await axios.get(edge.node.currentLord)
-      }
-      let resHeir = ""
-      if (edge.node.heir.length !== 0) {
-        const resHeir = await axios.get(edge.node.heir)
-      }
-      let resFounder = ""
-      if (edge.node.founder.length !== 0) {
-        const resFounder = await axios.get(edge.node.founder)
-      }
-      let resCadetBranches = []
-      if (edge.node.cadetBranches.length !== 0) {
-        for (i = 0; i < edge.node.cadetBranches.length; i++) {
-          let url = await axios.get(edge.node.cadetBranches[i])
-          resCadetBranches.push(url.data.name)
-        }
-      }
-      let resSwornMembers = []
-      if (edge.node.swornMembers.length !== 0) {
-        for (i = 0; i < edge.node.swornMembers.length; i++) {
-          let url = await axios.get(edge.node.swornMembers[i])
-          resSwornMembers.push(url.data.name)
-        }
-      }
-      await createPage({
-        path: "/houseDetails/" + edge.node.name + "/",
-        component: path.resolve("./src/pages/houseDetails.js"),
-        context: {
-          id: edge.node.id,
-          overlord: resOverlord?.data?.name,
-          currentLord: resCurrentLord?.data?.name,
-          heir: resHeir?.data?.name,
-          founder: resFounder?.data?.name,
-          cadetBranches: resCadetBranches,
-          swornMembers: resSwornMembers,
-        },
-      })
+  let ss = []
+  let index = 0
+  for (let item of houses.data.allHouse.edges) {
+    index++
+    console.log("INDEX", index)
+    createPage({
+      path: "/houseDetails/" + item.node.name + "/",
+      component: path.resolve("./src/pages/houseDetails.js"),
+      context: {
+        id: item.node.id,
+        overlord: item.node.overlord,
+        currentLord: item.node.currentLord,
+        heir: item.node.heir,
+        founder: item.node.founder,
+        cadetBranches: item.node.cadetBranches,
+        swornMembers: item.node.swornMembers,
+      },
     })
-  )
+  }
 }

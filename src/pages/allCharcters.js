@@ -46,12 +46,12 @@ export default function AllCharacters({ data }) {
           data-aos-offset="200"
           data-aos-duration="1500"
         >
-          {dataList?.map(house => (
+          {dataList?.map(character => (
             <Link
-              to={"/houseDetails/" + house.node.name}
+              to={"/characterDetails/" + character.node.name + "/"}
               className={style.route}
             >
-              {house.node.name}
+              {character.node.name}
             </Link>
           ))}
         </div>
@@ -66,6 +66,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }

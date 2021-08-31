@@ -17,7 +17,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Stark of winterfell</h1>
           <div className={style.card}>
             {data.stark.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>
@@ -25,7 +27,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Lannister of Casterly Rock</h1>
           <div className={style.card}>
             {data.lannister.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>
@@ -33,7 +37,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Targaryen of King's Landing</h1>
           <div className={style.card}>
             {data.targaryen.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>
@@ -41,7 +47,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Greyjoy of Pyke</h1>
           <div className={style.card}>
             {data.greyjoy.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>{" "}
@@ -49,7 +57,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Tyrell of Highgarden</h1>
           <div className={style.card}>
             {data.tyrell.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>{" "}
@@ -57,7 +67,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Baratheon of Storm's End</h1>
           <div className={style.card}>
             {data.baratheon.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>
@@ -65,7 +77,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Nymeros Martell of Sunspear</h1>
           <div className={style.card}>
             {data.nymerios.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>{" "}
@@ -73,7 +87,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Tully of Riverrun</h1>
           <div className={style.card}>
             {data.tully.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>
@@ -81,7 +97,9 @@ const CharacterMajor = ({ data }) => {
           <h1>House Arryn of the Eyrie</h1>
           <div className={style.card}>
             {data.arryn.edges.map(character => (
-              <Link to="/">{character.node.name}</Link>
+              <Link to={"/characterDetails/" + character.node.name}>
+                {character.node.name}
+              </Link>
             ))}{" "}
           </div>
         </div>
@@ -104,6 +122,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -117,6 +136,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -135,6 +155,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -148,6 +169,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -161,6 +183,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -174,6 +197,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -187,6 +211,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -200,6 +225,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }
@@ -213,6 +239,7 @@ export const query = graphql`
       edges {
         node {
           name
+          id
         }
       }
     }

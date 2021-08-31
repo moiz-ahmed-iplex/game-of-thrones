@@ -5,7 +5,6 @@
   color: white;
   align-items: center;
   position: relative;
-  padding-top: 120px;
 }
 .wrapper::after {
   content: "";
