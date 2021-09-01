@@ -17,3 +17,6 @@ body {
 .gatsby-image-wrapper {
   max-height: 100%;
 }
+html {
+  scroll-behavior: smooth;
+}

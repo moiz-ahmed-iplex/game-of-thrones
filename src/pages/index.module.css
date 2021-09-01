@@ -129,7 +129,7 @@
 }
 
 .desholder {
-  max-width: 60%;
+  width: 60%;
   line-height: 2.3;
   padding: 90px 0;
   opacity: 0.7;
@@ -297,6 +297,7 @@
   }
   .desholder {
     width: 100%;
+    padding: 20px 20px;
   }
   .desholder p {
     font-size: 12px;
@@ -304,5 +305,22 @@
   }
   .sigil {
     width: 49%;
+  }
+  .bottomContent {
+    padding: 0 20px;
+    padding-bottom: 90px;
+  }
+  .quote {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  .sigil a {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .housesHolder h1 {
+    font-size: 22px;
+    padding-bottom: 30px;
+    line-height: 1.5;
   }
 }

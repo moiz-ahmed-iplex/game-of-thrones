@@ -74,11 +74,28 @@
   .heading {
     font-size: 30px;
   }
+  .content {
+    width: 100%;
+    padding-bottom: 50px;
+    align-items: flex-start;
+    text-align: left;
+    background: #ffff;
+    padding: 15px;
+    color: #131313;
+    margin-bottom: 12px;
+    border-radius: 7px;
+  }
+  .content:nth-child(2n + 2) {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
   .content h1 {
-    font-size: 20px;
-    line-height: 1.5;
+    font-size: 15px;
+    padding-bottom: 5px;
   }
   .content p {
-    font-size: 15px;
+    font-size: 12px;
+    white-space: pre-wrap;
+    word-break: break-all;
   }
 }

@@ -193,7 +193,7 @@
     font-size: 15px;
   }
   .mapimg {
-    width: 50%;
+    width: 100%;
   }
   .descholder {
     width: 100%;
@@ -202,7 +202,10 @@
     display: none;
   }
   .mapimg {
-    height: 100%;
+    height: 400px;
     width: 100%;
+  }
+  .locationholder {
+    height: auto;
   }
 }
