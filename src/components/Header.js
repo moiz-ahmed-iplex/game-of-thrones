@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
-import * as headerStyle from "./header.module.css"
+import * as headerStyle from "./Header.module.css"
 import SideMenu from "./SideMenu"
 import styled from "styled-components"
 
